@@ -474,38 +474,38 @@ export async function getAllCaseStudies() {
 
 export async function getAllWork() {
   const data = await fetchAPI(`
-    {
-      caseStudies(first: 100) {
-        nodes {
-          title
-          slug
-          uri
-          caseStudySections {
-            color
-          }
-          categories {
-            nodes {
-              name
+      {
+        caseStudies(first: 100) {
+          nodes {
+            title
+            slug
+            uri
+            CaseStudySections {
+              color
             }
-          }
-          tagline {
-            tagline
-          }
-          relatedImage {
-            image {
-              mediaItemUrl
-              altText
+            categories {
+              nodes {
+                name
+              }
             }
-          }
-          featuredImage {
-            node {
-              mediaItemUrl
-              altText
+            tagline {
+              tagline
+            }
+            relatedImage {
+              image {
+                mediaItemUrl
+                altText
+              }
+            }
+            featuredImage {
+              node {
+                mediaItemUrl
+                altText
+              }
             }
           }
         }
       }
-    }
   `)
   return data?.caseStudies.nodes
 }
@@ -532,101 +532,101 @@ export async function getCaseStudyWithSlug(slug) {
   const data = await fetchAPI(
     `
     {
-      caseStudyBy(uri: "${slug}") {
-        slug
-        caseStudySections {
-          color
-          title
-          description
-          sections {
-            ... on CaseStudy_Casestudysections_Sections_TitleDescription {
-              __typename
+      caseStudyBy(uri:"${slug}") {
+          slug
+          CaseStudySections {
+              color
               title
-              subtitle
               description
-            }
-            ... on CaseStudy_Casestudysections_Sections_Divider {
-              __typename
-              padding
-            }
-            ... on CaseStudy_Casestudysections_Sections_Testimonial {
-              __typename
-              testimonial
-              author
-            }
-            ... on CaseStudy_Casestudysections_Sections_Video {
-              __typename
-              autoplay
-              video {
-                mediaItemUrl
+              sections {
+              ... on CaseStudy_Casestudysections_Sections_TitleDescription {
+                  __typename
+                  title
+                  subtitle
+                  description
               }
-              placeholder {
-                mediaItemUrl
-                altText
+              ... on CaseStudy_Casestudysections_Sections_Divider {
+                  __typename
+                  padding
               }
-            }
-            ... on CaseStudy_Casestudysections_Sections_ImageGrid {
-              __typename
-              width
-              gapWidth
-              slidesPerRow
-              images {
-                mediaItemUrl
-                altText
-                title
+              ... on CaseStudy_Casestudysections_Sections_Testimonial {
+                  __typename
+                  testimonial
+                  author
               }
-            }
-            ... on CaseStudy_Casestudysections_Sections_Statistics {
-              __typename
-              statistic {
-                title
-                width
-                backgroundColor
-                highlightLine1
-                highlightLine2
-                highlightSubtext
-                image {
+              ... on CaseStudy_Casestudysections_Sections_Video {
+                  __typename
+                  autoplay
+                  video {
+                  mediaItemUrl
+                  }
+                  placeholder {
                   mediaItemUrl
                   altText
-                }
+                  }
               }
-            }
-            ... on CaseStudy_Casestudysections_Sections_Carousel {
-              __typename
+              ... on CaseStudy_Casestudysections_Sections_ImageGrid {
+                  __typename
+                  width
+                  gapWidth
+                  slidesPerRow
+                  images {
+                  mediaItemUrl
+                  altText
+                  title
+                  }
+              }
+              ... on CaseStudy_Casestudysections_Sections_Statistics {
+                  __typename
+                  statistic {
+                  title
+                  width
+                  backgroundColor
+                  highlightLine1
+                  highlightLine2
+                  highlightSubtext
+                  image {
+                      mediaItemUrl
+                      altText
+                  }
+                  }
+              }
+              ... on CaseStudy_Casestudysections_Sections_Carousel {
+                  __typename
+                  title
+                  titlePosition
+                  gapWidth
+                  slidesPerView
+                  centerSlides
+                  pagination
+                  overflow
+                  images {
+                  mediaItemUrl
+                  altText
+                  }
+              }
+              ... on CaseStudy_Casestudysections_Sections_Slideshow {
+                  __typename
+                  images {
+                  mediaItemUrl
+                  altText
+                  }
+              }
+              }
+          }
+          categories {
+              nodes {
+              name
+              }
+          }
+          seo {
               title
-              titlePosition
-              gapWidth
-              slidesPerView
-              centerSlides
-              pagination
-              overflow
-              images {
-                mediaItemUrl
-                altText
-              }
-            }
-            ... on CaseStudy_Casestudysections_Sections_Slideshow {
-              __typename
-              images {
-                mediaItemUrl
-                altText
-              }
-            }
+              metaKeywords
+              metaDesc
+              canonical
           }
-        }
-        categories {
-          nodes {
-            name
-          }
-        }
-        seo {
-          title
-          metaKeywords
-          metaDesc
-          canonical
-        }
       }
-    }
+  }
   `
   )
   return data?.caseStudyBy

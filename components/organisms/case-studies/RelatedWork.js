@@ -7,12 +7,12 @@ import { useRouter } from 'next/router'
 
 export default function RelatedWork({ data }) {
 
-  const [ _color, setColor ] = useState(data[0].caseStudySections.color)
+  const [ _color, setColor ] = useState(data[0].CaseStudySections.color)
   const router = useRouter()
 
   useEffect(() => {
-    console.log(data[0].caseStudySections.color)
-    setColor(data[0].caseStudySections.color)
+    console.log(data[0].CaseStudySections.color)
+    setColor(data[0].CaseStudySections.color)
   },[router.asPath])
   
   return (
@@ -24,7 +24,7 @@ export default function RelatedWork({ data }) {
         loop={true}
         onSwiper={(swiper) => {
           const idx = swiper.realIndex
-          const i = data[idx].caseStudySections.color
+          const i = data[idx].CaseStudySections.color
           if (i)
             setColor(i)
           else
@@ -32,7 +32,7 @@ export default function RelatedWork({ data }) {
         }}
         onSlideChange={(swiper) => {
           const idx = swiper.realIndex
-          const i = data[idx].caseStudySections.color
+          const i = data[idx].CaseStudySections.color
           if (i)
             setColor(i)
           else

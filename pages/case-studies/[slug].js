@@ -10,7 +10,7 @@ import RelatedWork from '@components/organisms/case-studies/RelatedWork'
 export default function CaseStudy({ data, settings, menu, latestPosts, sections, related }) {
 
   const router = useRouter()
-  const page = data?.caseStudySections
+  const page = data?.CaseStudySections
   const colorGradient = `linear-gradient(to bottom, ${page?.color} 60%, transparent 100%)`
 
   const column1 = {
@@ -63,6 +63,7 @@ export default function CaseStudy({ data, settings, menu, latestPosts, sections,
 }
 
 export async function getStaticProps(ctx) {
+  console.log(ctx.params.slug);
   const data = await getCaseStudyWithSlug(ctx.params.slug)
   const settings = await getSiteSettings()
   const menu = await getMenuWithSlug('main-menu')
@@ -74,7 +75,7 @@ export async function getStaticProps(ctx) {
     props: {
       data,
       settings,
-      sections: data?.caseStudySections?.sections,
+      sections: data?.CaseStudySections?.sections,
       menu,
       latestPosts: posts?.nodes,
       related,
