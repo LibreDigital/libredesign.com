@@ -5,8 +5,6 @@ import LatestPosts from '@organisms/latest-posts/LatestPosts'
 import NewsletterForm from '@molecules/newsletter-form/NewsletterForm'
 import circleAnimation from "../../../libre-design-digital-animation.json"
 import arrowAnimation from "../../../libre-up-arrow.json"
-import Zendesk from 'react-zendesk'
-const ZENDESK_KEY = 'b797bfbb-869b-441b-9b54-6deb882ab29f'
 import withCursor from '@context/withCursor'
 
 function Footer({ copyright, column1, column2, column3, latestPosts, socials, address, phone, context }) {
@@ -23,12 +21,6 @@ function Footer({ copyright, column1, column2, column3, latestPosts, socials, ad
     })
   }
 
-  const zendeskSettings = {
-    color: {
-      theme: "#dae0d9"
-    }
-  }
-  
   return (
    <footer className={classNames('bg-black text-white overflow-hidden')}>
     <section className={classNames('min-h-screen flex flex-col justify-between sm:pt-40 pt-20')}>
@@ -93,7 +85,10 @@ function Footer({ copyright, column1, column2, column3, latestPosts, socials, ad
         <Lottie animationData={circleAnimation} loop={true} />
       </div>
     </section>
-    <Zendesk defer zendeskKey={ZENDESK_KEY} {...zendeskSettings} />
+    <a className={classNames('group flex items-center gap-x-2.5 fixed right-10 bottom-10 z-50 bg-[#D5FF91] py-5 px-9 rounded-[40px] hover:bg-black')} href='mailto:info@libredesign.com'>
+        <span className={classNames('group-hover:bg-[#D5FF91] block rounded-full bg-black w-4 h-4')}></span>
+        <span className={classNames('group-hover:text-[#D5FF91] text-black uppercase text-sm tracking-[0.28px]')}>Work With Us↗</span>
+    </a>
    </footer>
   )
 }
