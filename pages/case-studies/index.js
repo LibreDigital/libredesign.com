@@ -74,9 +74,6 @@ export default function CaseStudies({ data, settings, menu, latestPosts, categor
       phone={settings?.phone}
       socials={settings?.socials} />
       <section className="case-studies-header inline">
-        <h1 className={classNames('leading-tight sm:text-3xl md:text-[48px] lg:text-4xl text-[26px] sm:px-24 px-12 sm:pt-32 pt-24')}>
-          <HTMLContent content={settings?.caseStudiesHeaderTitle} />
-        </h1>
         <div className="sm:hidden block text-sm font-light px-12 pt-12">
           {settings?.caseStudiesSummary}
         </div>
