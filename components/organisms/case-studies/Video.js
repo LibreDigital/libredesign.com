@@ -15,7 +15,7 @@ export default function Video({ data }) {
 
   return (
     <section className={classNames('case-study-video')}>
-      <div className="mx-auto max-w-7xl py-8 relative">
+      <div className="mx-auto max-w-[113rem] py-5 relative">
         {toggle && data.placeholder &&
           <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-full z-10">
             <button className="cursor-pointer" onClick={handleClick}>

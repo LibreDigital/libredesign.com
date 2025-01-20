@@ -11,7 +11,6 @@ export default function CaseStudy({ data, settings, menu, latestPosts, sections,
 
   const router = useRouter()
   const page = data?.CaseStudySections
-  const colorGradient = `linear-gradient(to bottom, ${page?.color} 60%, transparent 100%)`
 
   const column1 = {
     title: settings?.title1,
@@ -39,7 +38,7 @@ export default function CaseStudy({ data, settings, menu, latestPosts, sections,
       phone={settings?.phone}
       socials={settings?.socials} />
         <main className={`page-${router.query.slug} relative`}>
-          {page?.color && <div className={`absolute top-0 left-0 w-full h-[180vh]`} style={{ backgroundImage: colorGradient }}></div>}
+          {page?.color && <div className={`absolute top-0 left-0 w-full h-[180vh]`}></div>}
           {page?.title && <CaseStudyHeader categories={data?.categories?.nodes} title={page?.title} description={page?.description} />}
           {sections?.map((section, index) => {
             const type = section.__typename;

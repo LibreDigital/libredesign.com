@@ -16,7 +16,7 @@ export default function RelatedWork({ data }) {
   },[router.asPath])
   
   return (
-    <section className="related-work relative" style={{background: `linear-gradient(to top, ${_color}, transparent)` }}>
+    <section className="related-work relative">
       <div className="relative px-12 lg:px-32 max-w-7xl mx-auto py-28">
       <Swiper
         slidesPerView={1}
