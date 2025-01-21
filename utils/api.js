@@ -400,6 +400,20 @@ export async function getPageWithSlug(slug) {
                 }
               }
             }
+            ... on Page_Sections_Sections_OurServices {
+              __typename
+              title
+              link {
+                target
+                url
+                title
+              }
+              servicesList {
+                ... on Service {
+                  title
+                }
+              }
+            }
           }
         }
         seo {

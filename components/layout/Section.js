@@ -19,6 +19,7 @@ import TitleDescription from '@organisms/case-studies/TitleDescription'
 import FeaturedNews from '@organisms/featured-news/FeaturedNews'
 import CaseStudyStatistics from '@organisms/case-studies/Statistics'
 import Blurb from '@organisms/blurb/Blurb'
+import OurServices from '@organisms/our-services/OurServices'
 import DefaultPage from '@organisms/default-page/DefaultPage'
 
 export default function Section(props) {
@@ -105,6 +106,11 @@ export default function Section(props) {
   if (type === _type('FeaturedPosts')) 
     return (
       <FeaturedNews data={section} latestPosts={latestPosts} />
+    )
+
+  if (type === _type('OurServices'))
+    return (
+      <OurServices data={section} />
     )
 
   if (type === _type2('Carousel')) 
